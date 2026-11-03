@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Jetseed</title>
+<meta name="description" content="Un pianeta di Jetseed: jetpack, mondi procedurali infiniti, gioca nel browser o nell'app.">
+<meta property="og:title" content="Jetseed · un pianeta ti aspetta">
+<meta property="og:description" content="Jetpack shooter in mondi procedurali infiniti. Tocca per atterrare su questo pianeta.">
+<meta property="og:image" content="https://alexroat.github.io/jetseed/preview.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; overscroll-behavior: none;
+               -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<script src="gles20.js"></script>
+<script src="android.js"></script>
+<script src="jetseed.js"></script>
+<script>
+  // Opened from a planet link on Android: offer the app (it opens the same planet).
+  (function () {
+    const p = new URLSearchParams(location.search).get('p');
+    if (!p || !/Android/i.test(navigator.userAgent)) return;
+    const a = document.createElement('a');
+    const q = new URLSearchParams(location.search);
+    q.delete('p');
+    a.href = 'jetseed://p/' + encodeURIComponent(p) + (q.toString() ? '?' + q : '');
+    a.textContent = 'Apri nell\'app Jetseed';
+    a.style.cssText = 'position:fixed;top:12px;right:12px;z-index:10;padding:10px 16px;border-radius:12px;'
+        + 'background:#2a6fd0;color:#fff;font:bold 16px system-ui,sans-serif;text-decoration:none';
+    document.body.appendChild(a);
+    setTimeout(() => a.remove(), 20000);
+  })();
+  main();
+</script>
+</body>
+</html>

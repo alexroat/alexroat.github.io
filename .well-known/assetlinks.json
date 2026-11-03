@@ -1,0 +1,11 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.alexroat.jetseed",
+    "sha256_cert_fingerprints": [
+      "B2:C1:9A:42:96:87:21:89:8E:9B:C0:9E:BE:FE:94:3F:FE:77:25:BB:12:1C:D9:3B:ED:37:1B:81:9D:11:F0:CC",
+      "FA:E7:7A:50:AA:EB:F3:EA:A2:6C:49:48:A1:33:E7:26:B1:7F:A5:56:A9:68:65:75:69:BE:AF:3D:5E:CC:64:4A"
+    ]
+  }
+}]
